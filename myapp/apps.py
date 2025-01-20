@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 from joblib import load
 import os
+from django.conf import settings  # To use the project's base directory
 
 class MYAPPConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
@@ -8,8 +9,8 @@ class MYAPPConfig(AppConfig):
     label = "MYAPP"
 
     def ready(self):
-        # Define the path to the 'SaveModels' directory
-        save_models_dir = os.path.join('D:\\My_Docs\\sentiment_analysis\\myproject', 'SaveModels')
+        # Define the path to the 'SaveModels' directory relative to the project base directory
+        save_models_dir = os.path.join(settings.BASE_DIR, 'SaveModels')
 
         # Construct the full paths to the model and vector files
         model_path = os.path.join(save_models_dir, 'model.joblib')
