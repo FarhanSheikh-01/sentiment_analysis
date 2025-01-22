@@ -1,31 +1,24 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ML Sentiment Analysis</title>
-    <!-- Correct the link to static file -->
-    <link href="{% static 'style.css' %}" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>Sentiment Analysis of Comments</h1>
-        <form id="commentForm" method="POST" action="{% url 'msg' %}">
-            {% csrf_token %}
-            <div class="form-floating mb-3">
-                <textarea class="form-control" id="floatingComment" name="text" placeholder="Enter your comment here..." required></textarea>
-                <label for="floatingComment">Comment</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <div id="output" class="mt-3">
-            <p id="msg">the result is {{prediction}}</p>
-        </div>
+{% extends "base.html" %}
+{% block body %}
+<div class="mt-5 about-section">
+        <h2>About This Project</h2>
+        <p>
+            This project is a <strong>Sentiment Analysis Application</strong> designed to analyze user-submitted comments and determine their emotional tone (e.g., positive, negative, or neutral). Built using Django for the backend, Bootstrap for the frontend, and integrated with machine learning models for sentiment prediction, this application provides an interactive and user-friendly interface.
+        </p>
+        <p><strong>Key Features:</strong></p>
+        <ul class="list-unstyled">
+            <li>Interactive form for submitting comments.</li>
+            <li>Real-time sentiment analysis and predictions.</li>
+            <li>Responsive design using Bootstrap.</li>
+            <li>Image carousel on the homepage for visual appeal.</li>
+            <li>Dynamic footer with project credits and additional information.</li>
+        </ul>
+        <p>
+            This project highlights the integration of web development, UI/UX design, and machine learning, making it a great example of modern web application capabilities.
+        </p>
     </div>
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+</div>
+
+
+{% endblock body %}
+
